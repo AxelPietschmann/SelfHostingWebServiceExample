@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			  
+			$.ajax({
+				dataType: "json",
+				url: "http://localhost:8080/api/inventory",
+				mimeType: "text/json",
+				success: function(data){
+					$(data).each(function(i, item){
+					$("#items").append('<li>' + item.Name + " " + item.Count + '</li>');
+					});
+				}
+				});
+			  
+			});
+		</script>
+	</head>
+	<body>
+
+		<p>Some items:</p>
+		
+		<ul id="items"></ul>
+
+	</body>
+</html>
